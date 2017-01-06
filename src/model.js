@@ -33,53 +33,63 @@ var Model = function () {
     key: "save",
     value: function save() {
       var m = this;
-      return new Promise(function (resolve) {
-        m.constructor.client.update({ id: m.id }, m.toJSON()).then(function (response) {
+      return new Promise(function (resolve, reject) {
+        m.constructor.client.update({ id: m.id }, m.toJSON())
+        .then(function (response) {
           resolve(new m.constructor(response));
         });
-      });
+      })
+      .catch(reject);
     }
   }, {
     key: "update",
     value: function update(item) {
       var m = this;
 
-      return new Promise(function (resolve) {
-        m.client.update({ id: m.id }, item).then(function (response) {
+      return new Promise(function (resolve, reject) {
+        m.client.update({ id: m.id }, item)
+        .then(function (response) {
           resolve(new m.constructor(response));
         });
-      });
+      })
+      .catch(reject);
     }
   }], [{
     key: "find",
     value: function find(params) {
       var m = this;
-      return new Promise(function (resolve) {
-        m.client.find(params).then(function (response) {
+      return new Promise(function (resolve, reject) {
+        m.client.find(params)
+        .then(function (response) {
           resolve(response.map(function (item) {
             return new m(item);
           }));
-        });
+        })
+        .catch(reject);
       });
     }
   }, {
     key: "findOne",
     value: function findOne(params) {
       var m = this;
-      return new Promise(function (resolve) {
-        m.find(params).then(function (response) {
+      return new Promise(function (resolve, reject) {
+        m.find(params)
+        .then(function (response) {
           resolve(response[0]);
-        });
+        })
+        .catch(reject);
       });
     }
   }, {
     key: "create",
     value: function create(item) {
       var m = this;
-      return new Promise(function (resolve) {
-        m.client.create(item).then(function (response) {
+      return new Promise(function (resolve, reject) {
+        m.client.create(item)
+        .then(function (response) {
           resolve(new m(response));
-        });
+        })
+        .catch(reject);
       });
     }
   }, {
@@ -87,11 +97,13 @@ var Model = function () {
     value: function update(search, item) {
       var m = this;
 
-      return new Promise(function (resolve) {
-        m.client.update(search, item).then(function (response) {
+      return new Promise(function (resolve, reject) {
+        m.client.update(search, item)
+        .then(function (response) {
           response = new m(response);
           resolve(response);
-        });
+        })
+        .catch(reject);
       });
     }
   }]);
