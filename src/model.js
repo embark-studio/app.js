@@ -37,9 +37,9 @@ var Model = function () {
         m.constructor.client.update({ id: m.id }, m.toJSON())
         .then(function (response) {
           resolve(new m.constructor(response));
-        });
-      })
-      .catch(reject);
+        })
+        .catch(reject);
+      });
     }
   }, {
     key: "update",
@@ -50,9 +50,9 @@ var Model = function () {
         m.client.update({ id: m.id }, item)
         .then(function (response) {
           resolve(new m.constructor(response));
-        });
-      })
-      .catch(reject);
+        })
+        .catch(reject);
+      });
     }
   }], [{
     key: "find",
