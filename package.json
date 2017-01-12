@@ -1,6 +1,6 @@
 {
   "name": "frame.js",
-  "version": "1.1.2",
+  "version": "1.1.4",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
