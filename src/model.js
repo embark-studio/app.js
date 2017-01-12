@@ -47,9 +47,23 @@ var Model = function () {
       var m = this;
 
       return new Promise(function (resolve, reject) {
-        m.client.update({ id: m.id }, item)
+        m.constructor.client.update({ id: m.id }, item)
         .then(function (response) {
           resolve(new m.constructor(response));
+        })
+        .catch(reject);
+      });
+    }
+  },{
+    key: "destroy",
+    value: function destroy() {
+      var m = this;
+
+      return new Promise(function (resolve, reject) {
+        m.constructor.client.remove({ id: m.id })
+        .then(function (response) {
+          response = new m.constructor(response);
+          resolve(response);
         })
         .catch(reject);
       });
