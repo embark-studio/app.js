@@ -10,7 +10,7 @@ var React = require("react");
 var ReactDOM = require("react-dom");
 var Page = require("page");
 var Promise = require('es6-promise').Promise;
-var Store = require("simple-store.js");
+var Store = require("simple-store");
 
 App.Promise = Promise;
 window.Promise = Promise;
