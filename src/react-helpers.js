@@ -7,10 +7,20 @@ var mergeState = {
 
 var handleParam = {
   handleParam: function (e) {
-    var key = $(e.currentTarget).attr('data-key');
+    var key = $(e.target).attr('data-key');
     var obj = {};
+    var myStore = $(e.target).attr('data-store');
 
     obj[key] = e.target.value;
+
+    if (myStore) {
+      if (this.stores[myStore]) {
+        this.stores[myStore].merge(obj);
+      } else {
+        Store(myStore).merge(obj);
+      }
+    }
+
     this.setState(obj);
   }
 }
