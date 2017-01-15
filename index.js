@@ -1,5 +1,6 @@
 require("html5-history-api");
 var App = require("./src/app");
+var Controller = require("./src/controller");
 var Component = require("./src/component");
 var Cookie = require("./src/cookie");
 var jQuery = require("./src/jquery");
@@ -48,5 +49,7 @@ window.ReactDOM = ReactDOM;
 App.Page = Page;
 window.page = Page;
 App.Store = Store;
+
+App.Controller = Controller;
 
 module.exports = App;
