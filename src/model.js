@@ -92,7 +92,7 @@ var Model = function () {
           if (Array.isArray(response)) {
             resolve(response[0]);
           } else {
-            return response;
+            resolve(response);
           }
         })
         .catch(reject);
