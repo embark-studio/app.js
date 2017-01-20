@@ -89,7 +89,11 @@ var Model = function () {
       return new Promise(function (resolve, reject) {
         m.client.findOne(params)
         .then(function (response) {
-          resolve(response[0]);
+          if (Array.isArray(response)) {
+            resolve(response[0]);
+          } else {
+            return response;
+          }
         })
         .catch(reject);
       });
