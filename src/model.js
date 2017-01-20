@@ -87,7 +87,7 @@ var Model = function () {
     value: function findOne(params) {
       var m = this;
       return new Promise(function (resolve, reject) {
-        m.find(params)
+        m.findOne(params)
         .then(function (response) {
           resolve(response[0]);
         })
