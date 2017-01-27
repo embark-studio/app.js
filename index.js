@@ -11,7 +11,7 @@ var React = require("react");
 var ReactDOM = require("react-dom");
 var Page = require("page");
 var Promise = require('es6-promise').Promise;
-var Store = require("simple-store");
+var Store = require("simple-store.js");
 
 App.Promise = Promise;
 window.Promise = Promise;
