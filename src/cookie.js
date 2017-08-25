@@ -8,10 +8,10 @@ var Cookie = {
         }
     },
     set: function(key, value){
-        return Cookies.set(key, JSON.stringify(value),  { domain: `.${this.host}`, path: '/'  })
+        return Cookies.set(key, JSON.stringify(value),  { domain: '.' + this.host, path: '/'  })
     },
     remove: function(key){
-        Cookies.remove(key, { domain: `.${this.host}` })
+        Cookies.remove(key, { domain: '.' + this.host })
     }
 }
 
